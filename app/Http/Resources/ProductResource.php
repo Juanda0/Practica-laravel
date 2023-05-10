@@ -3,27 +3,20 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
-
 {
+    public function toArray(Request $request): array
+    {
+        return [
 
-public function toArray(Request $request): array
+            'id' => $this->getId(),
 
-{
+            'name' => $this->getName(),
 
-return [
+            'price' => $this->getPrice(),
 
-'id' => $this->getId(),
-
-'name' => $this->getName(),
-
-'price' => $this->getPrice(),
-
-];
-
-}
-
+        ];
+    }
 }

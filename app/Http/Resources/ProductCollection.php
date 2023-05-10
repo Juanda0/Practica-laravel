@@ -3,31 +3,24 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProductCollection extends ResourceCollection
-
 {
+    public function toArray(Request $request): array
+    {
+        return [
 
-public function toArray(Request $request): array
+            'data' => $this->collection,
 
-{
+            'additionalData' => [
 
-return [
+                'storeName' => 'Mega Store',
 
-'data' => $this->collection,
+                'storeProductsLink' => 'http://127.0.0.1:8000/products',
 
-'additionalData' => [
+            ],
 
-'storeName' => 'Mega Store',
-
-'storeProductsLink' => 'http://127.0.0.1:8000/products',
-
-],
-
-];
-
-}
-
+        ];
+    }
 }
