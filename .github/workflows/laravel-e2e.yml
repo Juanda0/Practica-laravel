@@ -35,13 +35,14 @@ jobs:
         node-version: '16.x'
 
     - name: Build site
-      run: npm install
+      run: npm install --force
 
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
         browser: chrome
         install: false
+        hasInstallScript: true
         start: php artisan serve
         wait-on: http://localhost:8000
         config-file: cypress.config.js
